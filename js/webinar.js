@@ -17,22 +17,22 @@
 
 // console.log(doubleNums);
 
-const players = [
-    {id: 'player-1', name: 'mango', timePlayed: 310, points: 43, online: true},
-    {id: 'player-2', name: 'bingo', timePlayed: 390, points: 44, online: false},
-    {id: 'player-3', name: 'allo', timePlayed: 410, points: 54, online: true},
+// const players = [
+//     {id: 'player-1', name: 'mango', timePlayed: 310, points: 43, online: true},
+//     {id: 'player-2', name: 'bingo', timePlayed: 390, points: 44, online: false},
+//     {id: 'player-3', name: 'allo', timePlayed: 410, points: 54, online: true},
 
-];
-const playerName = players.map (player => {
-    console.log(player);
-    return player.name;
-});
+// ];
+// const playerName = players.map (player => {
+//     console.log(player);
+//     return player.name;
+// });
 
-console.log(playerName);
+// console.log(playerName);
 
-const playerIds = players.map (players => players.id);
+// const playerIds = players.map (players => players.id);
 
-console.log(playerIds);
+// console.log(playerIds);
 
 // const updatedPlayers = players.map (player => {
 //     console.log(player);
@@ -91,7 +91,7 @@ console.log(playerIds);
 
 
 
-const numbers = [5, 35, 76];
+const numbers = [5, 35, 76, 55, 9, 767];
 // const filteredNumbers = numbers.find(number => number > 24
 // )
 
@@ -130,6 +130,122 @@ const numbers = [5, 35, 76];
 
 // console.log(total);
 
-const total = numbers.reduce((acc, number)=> {return 100,}0);
-console.log(total);
+// const total = numbers.reduce((acc, number)=> acc + number, 0);
+// console.log(total);
+// 
+//  const salary = {
+//      poly:566,
+//      ajax: 655,
+//      tango:222,
+//  }
 
+// const totalSalary = Object.values(salary).reduce((total, value) => {
+// return total + value }
+// ); 0 
+// console.log(totalSalary)
+
+
+// const totalTimePlayed = players.reduce ((totalTime, players) => {return totalTime + players.timePlayed}, 0,);
+// const totalTimePlayed = players.reduce ((totalTime, players) => totalTime + players.timePlayed, 0,);
+// const totalTimePlayed = players.reduce (
+//     (totalTime, {timePlayed}) => totalTime + timePlayed,
+//      0,
+//      );
+
+//  console.log(totalTimePlayed)
+
+
+// const cart = [
+//     {label: 'apples', price: 100, quantity: 2},
+//     {label: 'pear', price: 200, quantity: 3},
+//     {label: 'grapes', price: 344, quantity: 1},
+
+// ]
+// const totalAmount = cart.reduce((total, {price, quantity}) => total + price * quantity,
+// 0,
+// );
+//  console.log(totalAmount);
+
+const tweets = [
+    {id: '000', likes: 5, tags: ['js', 'nodes']},
+    {id: '001', likes: 4, tags: ['jj', 'nodes']},
+
+];
+const allTags = tweets.reduce (
+    (tags, tweets) => {
+        tags.push(...tweets.tags );
+        return tags;
+    }, []
+);
+ console.log(allTags);
+
+// const tagsStats = allTags.reduce ((acc, tag) => {
+//     if (acc[tag]) {
+//         acc [tag] +1 
+//     return acc;
+//     } acc [tag] = 1;
+//     return acc;
+          
+
+//     }, {}
+// );
+
+
+// const tagsStats = allTags.reduce ((acc, tag) => {
+//     return {
+//         ...acc,
+//          [tag]: acc[tag] ? acc[tag] + 1 :1,  
+//         };
+
+//     }, {}
+// );
+
+//  console.log(tagsStats);
+
+numbers.sort ((curEl, nextEl) => {
+    return nextEl - curEl;
+});
+console.log(numbers);
+
+const letters = ['a', 'd', 'H'];
+
+
+letters.sort();
+console.log(letters);
+
+const descSortedNumbers = [...numbers].sort((a,b)=> b-a);
+const asccSortedNumbers = [...numbers].sort((a,b)=> a-b);
+console.log(descSortedNumbers);
+console.log(asccSortedNumbers);
+
+
+
+const players = [
+    {id: 'player-1', name: 'mango', timePlayed: 310, points: 43, online: true},
+    {id: 'player-2', name: 'bingo', timePlayed: 390, points: 44, online: false},
+    {id: 'player-3', name: 'allo', timePlayed: 410, points: 54, online: true},
+
+];
+
+const sortedByBestPlayers = [...players].sort(
+    (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed,
+);
+console.log(sortedByBestPlayers);
+
+const sortedByWorstPlayers = [...players].sort(
+    (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
+);
+console.log(sortedByWorstPlayers);
+
+const byName = [...players].sort((a,b) => {
+    const result = a.name[0] > b.name[0];
+    
+    if (result) {
+        return 1;
+    };
+    if (!result) {
+        return -1;
+    }
+});
+
+console.log(byName);

@@ -171,13 +171,18 @@ const tweets = [
     {id: '001', likes: 4, tags: ['jj', 'nodes']},
 
 ];
-const allTags = tweets.reduce (
-    (tags, tweets) => {
-        tags.push(...tweets.tags );
-        return tags;
-    }, []
-);
- console.log(allTags);
+// const allTags = tweets.reduce (
+//     (tags, tweets) => {
+//         tags.push(...tweets.tags );
+//         return tags;
+//     }, []
+// );
+
+// console.log(allTags);
+//const tags = tweets.map(t => t.tags).flat();
+const tags = tweets.flatMap(t => t.tags).flat();
+console.log(tags);
+
 
 // const tagsStats = allTags.reduce ((acc, tag) => {
 //     if (acc[tag]) {
@@ -221,31 +226,71 @@ console.log(asccSortedNumbers);
 
 
 const players = [
-    {id: 'player-1', name: 'mango', timePlayed: 310, points: 43, online: true},
-    {id: 'player-2', name: 'bingo', timePlayed: 390, points: 44, online: false},
-    {id: 'player-3', name: 'allo', timePlayed: 410, points: 54, online: true},
+    {id: 'player-1', name: 'mango', timePlayed: 310, points: 43, online: true, rank: 765},
+    {id: 'player-2', name: 'bingo', timePlayed: 390, points: 44, online: false, rank: 775},
+    {id: 'player-3', name: 'allo', timePlayed: 410, points: 54, online: true, rank: 456},
 
 ];
+const onlineSorted = players
+.filter(player => player.online)  
+.sort((playerA, playerB) => playerA.rank - playerB.rank);
+//console.log(onlineSorted);
+
 
 const sortedByBestPlayers = [...players].sort(
     (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed,
 );
-console.log(sortedByBestPlayers);
+//console.log(sortedByBestPlayers);
 
 const sortedByWorstPlayers = [...players].sort(
     (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
 );
-console.log(sortedByWorstPlayers);
+//console.log(sortedByWorstPlayers);
+
+// const byName = [...players].sort((a,b) => {
+//     const result = a.name[0] > b.name[0];
+    
+//     if (result) {
+//         return 1;
+//     };
+//     if (!result) {
+//         return -1;
+//     }
+// });
+
+
 
 const byName = [...players].sort((a,b) => {
     const result = a.name[0] > b.name[0];
     
     if (result) {
         return 1;
-    };
-    if (!result) {
+    } else {
         return -1;
     }
 });
 
-console.log(byName);
+//console.log(byName);
+
+
+//console.log('abc'.charCodeAt(2));
+
+
+
+
+
+
+const sorted = numbers
+.filter (numbers => numbers > 2)
+.flatMap (numbers => numbers * 3)
+.sort ((a, b )=> a -b);
+
+//console.log(numbers );
+
+console.log(_.range(1,6,2));    
+console.log(_.union([1,2,3], [2,3,4,5]));    
+console.log(_.isEmpty(sorted));    
+console.log(_.get(numbers));    
+console.log(_.sortBy(numbers));    
+
+
